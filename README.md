@@ -9,14 +9,11 @@ trying the DocuSign eSignature API with the
 
 The repo includes:
 
-1. qs-01-php-embed-signing-ceremony.php
-
+1. **qs-01-php-embed-signing-ceremony.php** --
    Embedding a signing ceremony in your web application.
-2. qs-02-php-send-envelope.php
-
+2. **qs-02-php-send-envelope.php** --
    Sending a signing request via an email to the signer.
-3. qs-03-php-list-envelopes.php
-
+3. **qs-03-php-list-envelopes.php** -- 
    Listing the envelopes in the user's account, including their status.
 
 These examples do not include authentication. Instead,

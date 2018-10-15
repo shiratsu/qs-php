@@ -92,6 +92,9 @@ function embedded_signing_ceremony(){
     #
     if ($baseUrl == '') {
         # Try to figure out our URL folder
+        # NOTE: The following code relies on browser-supplied headers to be correct.
+        #       In production, DO NOT use this code since it is not bullet-proof.
+        #       Instead, set the $baseUrl appropriately.
         $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         # remove the current script name from the $baseUrl:
         $chars = -1 * (strlen(__FILE__) - strlen(__DIR__));
@@ -108,7 +111,7 @@ function embedded_signing_ceremony(){
     
     #
     # Step 4. The Recipient View URL (the Signing Ceremony URL) has been received.
-    #         Redirect the user's browser to it.
+    #         The user's browser will be redirected to it.
     #
     return $results['url'];
 };
@@ -117,6 +120,7 @@ function embedded_signing_ceremony(){
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         $redirectUrl = embedded_signing_ceremony();
+        # Redirect...
         header('Location: ' . $redirectUrl);
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";

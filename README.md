@@ -1,20 +1,21 @@
 # DocuSign Quick Start examples for PHP
 
-Repository: [qs-python](https://github.com/docusign/qs-python)
+Repository: [qs-php](https://github.com/docusign/qs-php)
 
 These quick start examples provide straight-forward
 code examples for quickly
-trying the DocuSign eSignature API with the Python SDK.
+trying the DocuSign eSignature API with the
+[PHP SDK](https://github.com/docusign/docusign-php-client).
 
 The repo includes:
 
-1. qs-01-python-embed-signing-ceremony
+1. qs-01-php-embed-signing-ceremony.php
 
    Embedding a signing ceremony in your web application.
-2. qs-02-python-send-envelope
+2. qs-02-php-send-envelope.php
 
    Sending a signing request via an email to the signer.
-3. qs-03-python-list-envelopes
+3. qs-03-php-list-envelopes.php
 
    Listing the envelopes in the user's account, including their status.
 
@@ -23,29 +24,33 @@ use the DocuSign DevCenter's
 [OAuth token generator](https://developers.docusign.com/oauth-token-generator)
 to create an access token.
 
-For a Python JWT authentication example, see the
-[eg-01-python-jwt](https://github.com/docusign/eg-01-python-jwt)
-repository. An OAuth Authorization Code Grant example is
+For a PHP JWT authentication example, see the
+[eg-01-php-jwt](https://github.com/docusign/eg-01-php-jwt)
+repository. An OAuth Authorization Code Grant example
+using the PHP Laravel framework is
 also being developed.
 
 For more information, see the
-[DocuSign DevCenter Examples section](https://developers.docusign.com/esign-rest-api/code-examples).
+[DocuSign DevCenter Code Examples section](https://developers.docusign.com/esign-rest-api/code-examples).
 
 ## Installation
 
-This example requires Python v3.6 or later.
-The SDK itself works with Python v2.7 or later.
+This example requires PHP v5.6 or later.
 
-Download or clone this repository. Then:
+Download or clone this repository to a file directory
+that is served by a PHP-enabled web server.
+
+Then:
 
 ````
-cd qs-python
-pip install docusign_esign pendulum flask
+cd qs-php
+composer require docusign/esign-client
 ````
 
 ### Configure the example's settings
 Each quick start example is a standalone file. You will configure
-each of the example files:
+each of the example files by setting the variables at the top of each
+file:
 
  * **Access token:** Use the [OAuth Token Generator](https://developers.docusign.com/oauth-token-generator).
    To use the token generator, you'll need a
@@ -64,18 +69,14 @@ each of the example files:
 
 ## Run the examples
 
-The embedded signing example provides a small web app's server.
-First, start the web app:
-````
-python3 qs-01-python-embed-signing-ceremony.py
-````
-Then open your browser to http://localhost:5000
+Use your web browser to navigate to the url for the
+php file `qs-01-php-embed-signing-ceremony.php` that
+you have just installed and configured.
 
-Two of the examples are command line scripts:
-````
-python3 qs-02-python-send-envelope.py
-python3 qs-03-python-list-envelopes.py
-````
+In a similar manner, run the other examples too:
+
+* qs-02-php-send-envelope.php
+* qs-03-php-list-envelopes.php
 
 ## Support, Contributions, License
 

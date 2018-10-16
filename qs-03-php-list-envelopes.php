@@ -12,11 +12,10 @@ function list_envelopes(){
     # Fill in these constants
     #
     # Obtain an OAuth access token from https://developers.hqtest.tst/oauth-token-generator
-    $accessToken = '';
+    $accessToken = '{ACCESS_TOKEN}';
     # Obtain your accountId from demo.docusign.com -- the account id is shown in the drop down on the
     # upper right corner of the screen by your picture or the default picture. 
-    $accountId = '';
-    # Recipient Information:
+    $accountId = '{ACCOUNT_ID}';
 
     # The API base_path
     $basePath = 'https://demo.docusign.net/restapi';

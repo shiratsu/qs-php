@@ -16,13 +16,13 @@ function embedded_signing_ceremony(){
     # Fill in these constants
     #
     # Obtain an OAuth access token from https://developers.hqtest.tst/oauth-token-generator
-    $accessToken = '';
+    $accessToken = '{ACCESS_TOKEN}';
     # Obtain your accountId from demo.docusign.com -- the account id is shown in the drop down on the
     # upper right corner of the screen by your picture or the default picture. 
-    $accountId = '';
+    $accountId = '{ACCOUNT_ID}';
     # Recipient Information:
-    $signerName = 'Larry Smith';
-    $signerEmail = 'larry@example.com';
+    $signerName = '{USER_FULLNAME}';
+    $signerEmail = '{USER_EMAIL}';
     # The document you wish to send. Path is relative to the root directory of this repo.
     $fileNamePath = 'demo_documents/World_Wide_Corp_lorem.pdf';
     # The url of this web application's folder. If you leave it blank, the script will attempt to figure it out.

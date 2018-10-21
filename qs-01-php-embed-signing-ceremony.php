@@ -70,13 +70,15 @@ function embedded_signing_ceremony(){
     ]);
 
     # Add the tabs to the signer object
-    $signer->setTabs(new DocuSign\eSign\Model\Tabs(['sign_here_tabs' => [$signHere]])); # The Tabs object wants arrays of the different field/tab types
+    # The Tabs object wants arrays of the different field/tab types
+    $signer->setTabs(new DocuSign\eSign\Model\Tabs(['sign_here_tabs' => [$signHere]]));
 
     # Next, create the top level envelope definition and populate it.
     $envelopeDefinition = new DocuSign\eSign\Model\EnvelopeDefinition([
         'email_subject' => "Please sign this document",
         'documents' => [$document], # The order in the docs array determines the order in the envelope
-        'recipients' => new DocuSign\eSign\Model\Recipients(['signers' => [$signer]]), # The Recipients object wants arrays for each recipient type
+        # The Recipients object wants arrays for each recipient type
+        'recipients' => new DocuSign\eSign\Model\Recipients(['signers' => [$signer]]), 
         'status' => "sent" # requests that the envelope be created and sent.
     ]);
     

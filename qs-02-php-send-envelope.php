@@ -40,28 +40,35 @@ function send_document_for_signing(){
     $contentBytes = file_get_contents($appPath . "/" . $fileNamePath);
     $base64FileContent =  base64_encode ($contentBytes);
 
-    $document = new DocuSign\eSign\Model\Document([ # create the DocuSign document object 
+    # create the DocuSign document object
+    $document = new DocuSign\eSign\Model\Document([  
         'document_base64' => $base64FileContent, 
         'name' => 'Example document', # can be different from actual file name
         'file_extension' => 'pdf', # many different document types are accepted
         'document_id' => '1' # a label used to reference the doc
     ]);
+    
+    # The signer object
+    $signer = new DocuSign\eSign\Model\Signer([ 
+        'email' => $signerEmail, 'name' => $signerName, 'recipient_id' => "1", 'routing_order' => "1"
+    ]);
 
-    $signHere = new DocuSign\eSign\Model\SignHere([ # DocuSign SignHere field/tab
+    # DocuSign SignHere field/tab object
+    $signHere = new DocuSign\eSign\Model\SignHere([ 
         'document_id' => '1', 'page_number' => '1', 'recipient_id' => '1', 
         'tab_label' => 'SignHereTab', 'x_position' => '195', 'y_position' => '147'
     ]);
 
-    $signer = new DocuSign\eSign\Model\Signer([ # The signer
-        'email' => $signerEmail, 'name' => $signerName, 'recipient_id' => "1", 'routing_order' => "1",
-        'tabs' => new DocuSign\eSign\Model\Tabs(['sign_here_tabs' => [$signHere]]) # The Tabs object wants arrays of the different field/tab types
-    ]);
+    # Add the tabs to the signer object
+    # The Tabs object wants arrays of the different field/tab types
+    $signer->setTabs(new DocuSign\eSign\Model\Tabs(['sign_here_tabs' => [$signHere]])); 
 
     # Next, create the top level envelope definition and populate it.
     $envelopeDefinition = new DocuSign\eSign\Model\EnvelopeDefinition([
         'email_subject' => "Please sign this document",
         'documents' => [$document], # The order in the docs array determines the order in the envelope
-        'recipients' => new DocuSign\eSign\Model\Recipients(['signers' => [$signer]]), # The Recipients object wants arrays for each recipient type
+        # The Recipients object wants arrays for each recipient type
+        'recipients' => new DocuSign\eSign\Model\Recipients(['signers' => [$signer]]), 
         'status' => "sent" # requests that the envelope be created and sent.
     ]);
     

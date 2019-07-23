@@ -14,7 +14,7 @@ function send_document_for_signing(){
     # Settings
     # Fill in these constants
     #
-    # Obtain an OAuth access token from https://developers.hqtest.tst/oauth-token-generator
+    # Obtain an OAuth access token from https://developers.docusign.com/oauth-token-generator
     $accessToken = '{ACCESS_TOKEN}';
     # Obtain your accountId from demo.docusign.com -- the account id is shown in the drop down on the
     # upper right corner of the screen by your picture or the default picture. 

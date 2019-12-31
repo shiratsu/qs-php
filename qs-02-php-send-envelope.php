@@ -15,7 +15,7 @@ function send_document_for_signing(){
     # Fill in these constants
     #
     # Obtain an OAuth access token from https://developers.docusign.com/oauth-token-generator
-     $accessToken = '{ACCESS_TOKEN}';
+    $accessToken = '{ACCESS_TOKEN}';
     # Obtain your accountId from demo.docusign.com -- the account id is shown in the drop down on the
     # upper right corner of the screen by your picture or the default picture. 
     $accountId = '{ACCOUNT_ID}';

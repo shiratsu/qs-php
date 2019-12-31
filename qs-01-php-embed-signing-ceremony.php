@@ -88,7 +88,7 @@ function embedded_signing_ceremony(){
     $config = new DocuSign\eSign\Configuration();
     $config->setHost($basePath);
     $config->addDefaultHeader("Authorization", "Bearer " . $accessToken);
-    $apiClient = new DocuSign\eSign\ApiClient($config);
+    $apiClient = new DocuSign\eSign\Client\ApiClient($config);
     $envelopeApi = new DocuSign\eSign\Api\EnvelopesApi($apiClient);
     $results = $envelopeApi->createEnvelope($accountId, $envelopeDefinition);
     $envelopeId = $results['envelope_id'];
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: ' . $redirectUrl);
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
-        if ($e instanceof DocuSign\eSign\ApiException) {
+        if ($e instanceof DocuSign\eSign\Client\ApiException) {
             print ("\nDocuSign API error information: \n");
             var_dump ($e->getResponseBody());
         }

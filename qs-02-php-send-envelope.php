@@ -15,7 +15,7 @@ function send_document_for_signing(){
     # Fill in these constants
     #
     # Obtain an OAuth access token from https://developers.docusign.com/oauth-token-generator
-    $accessToken = '{ACCESS_TOKEN}';
+     $accessToken = '{ACCESS_TOKEN}';
     # Obtain your accountId from demo.docusign.com -- the account id is shown in the drop down on the
     # upper right corner of the screen by your picture or the default picture. 
     $accountId = '{ACCOUNT_ID}';
@@ -78,7 +78,7 @@ function send_document_for_signing(){
     $config = new DocuSign\eSign\Configuration();
     $config->setHost($basePath);
     $config->addDefaultHeader("Authorization", "Bearer " . $accessToken);
-    $apiClient = new DocuSign\eSign\ApiClient($config);
+    $apiClient = new DocuSign\eSign\Client\ApiClient($config);
     $envelopeApi = new DocuSign\eSign\Api\EnvelopesApi($apiClient);
     $results = $envelopeApi->createEnvelope($accountId, $envelopeDefinition);
     return $results;
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
-        if ($e instanceof DocuSign\eSign\ApiException) {
+        if ($e instanceof DocuSign\eSign\Client\ApiException) {
             print ("\nDocuSign API error information: \n");
             var_dump ($e->getResponseBody());
         }

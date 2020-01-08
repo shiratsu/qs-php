@@ -1,35 +1,37 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3222380f0c0d25c2cb0cf5e04ce2ce58",
+    "content-hash": "6cccde1a3657e02978f62e4ab2885b45",
     "packages": [
         {
             "name": "docusign/esign-client",
-            "version": "3.0.1",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/docusign/docusign-php-client.git",
-                "reference": "bf4c4afa000c141655c1001a0c96efdc28b211f9"
+                "reference": "1eb80c1142c417cdb7b471656621fb72f429cca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/docusign/docusign-php-client/zipball/bf4c4afa000c141655c1001a0c96efdc28b211f9",
-                "reference": "bf4c4afa000c141655c1001a0c96efdc28b211f9",
+                "url": "https://api.github.com/repos/docusign/docusign-php-client/zipball/1eb80c1142c417cdb7b471656621fb72f429cca9",
+                "reference": "1eb80c1142c417cdb7b471656621fb72f429cca9",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "php": ">=5.5.36"
+                "firebase/php-jwt": "^5.0",
+                "php": ">=5.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "~0.6.1",
-                "squizlabs/php_codesniffer": "~2.0"
+                "friendsofphp/php-cs-fixer": "*",
+                "phpunit/phpunit": "~4.8",
+                "satooshi/php-coveralls": "~1.0",
+                "squizlabs/php_codesniffer": "~2.6"
             },
             "type": "library",
             "autoload": {
@@ -44,18 +46,66 @@
             "authors": [
                 {
                     "name": "DocuSign",
-                    "homepage": "https://www.docusign.com/developer-center"
+                    "homepage": "https://developers.docusign.com"
                 }
             ],
             "description": "The DocuSign PHP library makes integrating DocuSign into your websites a super fast and painless process. The library is open sourced on GitHub, look for the docusign-php-client repository. Join the eSign revolution!",
-            "homepage": "https://www.docusign.com/developer-center",
+            "homepage": "https://developers.docusign.com",
             "keywords": [
+                "agreement",
                 "api",
+                "docusign",
+                "eSignature",
                 "php",
-                "sdk",
-                "swagger"
+                "sdk"
             ],
-            "time": "2017-10-25T22:08:40+00:00"
+            "time": "2019-08-30T08:10:39+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": " 4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2017-06-27T22:17:23+00:00"
         }
     ],
     "packages-dev": [],

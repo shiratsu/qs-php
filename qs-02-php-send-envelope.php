@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 # Since it isn't a POST, print the form:
 ?>
-<html lang="en">
+<html>
     <body>
         <form method="post">
             <input type="submit" value="Send document signature request!"
